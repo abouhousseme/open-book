@@ -1,0 +1,89 @@
+/* تعيين الخط العام للموقع */
+body {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl; /* لضبط النص ليظهر بشكل مناسب للغة العربية */
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* لضبط الصفحة بشكل مناسب في منتصف الشاشة */
+}
+
+/* تنسيق الرأس */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* تنسيق الشريط العلوي (الروابط) */
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #4CAF50;
+  margin: 0 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #333;
+}
+
+/* تنسيق القسم الخاص بأحدث الكتب */
+section {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+}
+
+section h2 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+section p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* تحسين التنسيق للأجهزة الصغيرة */
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  section h2 {
+    font-size: 1.5em;
+  }
+
+  nav a {
+    font-size: 1em;
+  }
+}

@@ -13,6 +13,12 @@ body {
   text-align: center; /* تأكيد محاذاة النصوص للمنتصف */
 }
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
 /* تنسيق الرأس */
 header {
   text-align: center;

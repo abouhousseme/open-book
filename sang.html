@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاعل صوتي مع الكتب</title>
+</head>
+<body>
+  <h1>مكتبة الكتب الإلكترونية</h1>
+  <button onclick="startRecognition()">ابدأ التعرف على الصوت</button>
+  
+  <div id="book1">
+    <h2>عنوان الكتاب الأول</h2>
+    <p>هنا نص الكتاب الأول الذي سيتم قراءته.</p>
+    <button onclick="readBook('هنا نص الكتاب الأول')">استمع للكتاب الأول</button>
+  </div>
+
+  <script>
+    // التعرف على الصوت
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = "ar-SA";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    function startRecognition() {
+      recognition.start();
+      console.log("بدأ التعرف على الصوت...");
+    }
+
+    recognition.onresult = function(event) {
+      const command = event.results[0][0].transcript;
+      console.log("تم التعرف على النص: " + command);
+      processVoiceCommand(command);
+    }
+
+    recognition.onerror = function(event) {
+      console.log("حدث خطأ: " + event.error);
+    }
+
+    function processVoiceCommand(command) {
+      if (command.includes("الكتاب الأول")) {
+        readBook("هنا نص الكتاب الأول");
+      } else if (command.includes("الكتاب الثاني")) {
+        readBook("هنا نص الكتاب الثاني");
+      } else {
+        console.log("لم يتعرف النظام على الأمر.");
+      }
+    }
+
+    // تحويل النص إلى صوت
+    function readBook(text) {
+      var speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "ar-SA";
+      window.speechSynthesis.speak(speech);
+    }
+  </script>
+</body>
+</html>
